@@ -116,15 +116,15 @@ branchId p = f . typeId
       | otherwise = id
 
 smartCtorId :: Id -> Text
-smartCtorId = mappend "new" . typeId
+smartCtorId = mappend "mk" . typeId
 
 accessorId :: Id -> Text
-accessorId = renameReserved . Manipulate.lowerHead . Lens.view representation
+accessorId = renameReserved . lowerFirstAcronym . Lens.view representation
 
 lensId :: Maybe Text -> Id -> Text
 lensId p = renameReserved . accessor p
   where
-    accessor Nothing = Manipulate.lowerHead . Lens.view representation
+    accessor Nothing = lowerFirstAcronym . Lens.view representation
     accessor (Just p) = f . Lens.view representation
       where
         f

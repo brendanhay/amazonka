@@ -59,6 +59,15 @@ touchFile path text =
     unless exists $
       writeLTFile path text
 
+copyFileIfExists :: MonadIO m => FilePath -> FilePath -> m ()
+copyFileIfExists source target =
+  liftIO $ do
+    exists <- Directory.doesFileExist source
+
+    when exists $ do
+      say ("Copying " ++ source ++ " to " ++ target)
+      Directory.copyFile source target
+
 createDir :: MonadIO m => FilePath -> m ()
 createDir path =
   liftIO $ do

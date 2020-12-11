@@ -99,6 +99,12 @@ data Derive
   | DGeneric
   | DHashable
   | DNFData
+  | DToJSONKey
+  | DFromJSONKey
+  | DToJSON
+  | DFromJSON
+  | DToXML
+  | DFromXML
   | DToText
   | DFromText
   | DToByteString
@@ -112,7 +118,7 @@ instance FromJSON Derive where
   parseJSON = Gen.TH.genericParseJSON (Gen.TH.spinal & Gen.TH.ctor %~ (. Text.drop 1))
 
 derivingName :: Derive -> Text
-derivingName = mappend "Prelude." . Text.pack . drop 1 . show
+derivingName = Text.pack . drop 1 . show
 
 derivingStrategy :: Derive -> Either Text Text
 derivingStrategy derive =

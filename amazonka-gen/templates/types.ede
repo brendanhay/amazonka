@@ -1,12 +1,10 @@
-{-# LANGUAGE OverloadedStrings  #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 {% include "_include/license.ede" %}
 --
 module {{ moduleName }}
     (
-    -- * Service Configuration
+    -- * Service configuration
       {{ serviceConfig }}
   {% for shape in shapes %}
     {% if shape.first %}
@@ -21,7 +19,7 @@ module {{ moduleName }}
   {% for module in typeModules %}
     {% if module.first %}
 
-    -- * Re-exported Types
+    -- * Re-exported types
     {% endif %}
     , module {{ module.value }}
   {% endfor %}
@@ -30,7 +28,7 @@ module {{ moduleName }}
     {% when "product" %}
 
     -- * {{ shape.value.name }}
-    , {{ shape.value.name }}
+    , {{ shape.value.name }} (..)
     , {{ shape.value.constructor.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}

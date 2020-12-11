@@ -21,6 +21,11 @@ import qualified Data.ByteString.Lazy as LBS
 import Data.Conduit
 import Data.Conduit.Lazy (lazyConsume)
 import qualified Data.Conduit.List as Conduit
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
+import Data.Hashable (Hashable)
+import Data.List.NonEmpty (NonEmpty (..))
+import qualified Data.List.NonEmpty as NonEmpty
 import Data.Maybe
 import Data.XML.Types (Event (..))
 import GHC.Exts
@@ -31,11 +36,6 @@ import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
 import qualified Text.XML.Stream.Render as Stream
 import Text.XML.Unresolved (toEvents)
-import Data.List.NonEmpty (NonEmpty (..))
-import qualified Data.List.NonEmpty as NonEmpty
-import Data.Hashable (Hashable)
-import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as HashMap
 
 infixl 7 .@, .@?
 

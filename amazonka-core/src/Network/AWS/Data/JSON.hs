@@ -9,6 +9,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.JSON
   ( -- * FromJSON
+    FromJSONKey,
     FromJSON (..),
     parseJSONText,
     eitherDecode,
@@ -26,6 +27,7 @@ module Network.AWS.Data.JSON
     (.?>),
 
     -- * ToJSON
+    ToJSONKey,
     ToJSON (..),
     toJSONText,
     Value (Object),

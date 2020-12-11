@@ -1,0 +1,15 @@
+{% if shape.documentation %}
+-- | {{ shape.documentation }}
+{% endif %}
+{{ shape.declaration }}
+
+{% for pattern in shape.patterns %}
+pattern {{ pattern.key }} :: {{ shape.name }}
+pattern {{ pattern.key }} = {{ shape.constructor }} "{{ pattern.value }}"
+
+{% endfor %}
+{-# COMPLETE {% for pattern in shape.patterns %}
+  {{ pattern.key }},
+{% endfor %}
+  {{ shape.constructor }}
+  #-}

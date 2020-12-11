@@ -31,6 +31,7 @@ import Control.Lens as Fn
     iso,
     lens,
     mapping,
+    non,
     prism,
     sets,
     to,

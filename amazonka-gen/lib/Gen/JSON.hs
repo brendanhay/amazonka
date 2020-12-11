@@ -18,28 +18,29 @@ import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Foldable as Foldable
 import qualified Data.HashMap.Strict as HashMap
-import Gen.IO (readBSFile)
+import Gen.IO (createDir, readBSFile)
 import Gen.Prelude
 import qualified System.Directory as Directory
+import System.FilePath ((</>))
+import qualified System.FilePath as FilePath
 import qualified Text.EDE as EDE
 
 required :: MonadIO m => FilePath -> m Object
 required path =
   liftIO $ do
     bytes <- readBSFile path
+    value <- either (Except.throwError . userError) pure (decode bytes)
 
-    either (Except.throwError . userError) pure (decode bytes)
+    pure value
 
 optional :: MonadIO m => FilePath -> m Object
 optional path =
   liftIO $ do
     exists <- Directory.doesFileExist path
-    bytes <-
-      if exists
-        then readBSFile path
-        else pure "{}"
+    bytes <- if exists then readBSFile path else pure "{}"
+    value <- either (Except.throwError . userError) pure (decode bytes)
 
-    either (Except.throwError . userError) pure (decode bytes)
+    pure value
 
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr name =

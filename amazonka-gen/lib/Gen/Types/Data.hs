@@ -67,16 +67,12 @@ prodToJSON s Prod' {..} is =
     "constructor" .= _prodCtor,
     "documentation" .= _prodDoc,
     "declaration" .= _prodDecl,
-    "lenses" .= map flatten _prodLenses,
+    "lenses" .= _prodLenses,
     "accessors" .= _prodAccessors,
     "instances" .= is,
     "shared" .= isShared s,
     "eq" .= isEq s
   ]
-  where
-    flatten fun = fun {_funDoc = go (_funDoc fun)}
-      where
-        go (Help h) = Help (Text.replace "\n--" "" h)
 
 data Sum = Sum'
   { _sumName :: Text,

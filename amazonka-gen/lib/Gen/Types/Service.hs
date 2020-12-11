@@ -60,17 +60,17 @@ instance ToJSON Signature where
   toJSON = Aeson.String . sigToText
 
 data Timestamp
-  = RFC822
-  | ISO8601
+  = ISO8601
   | POSIX
   deriving stock (Eq, Show, Generic)
 
 tsToText :: Timestamp -> Text
-tsToText = Text.pack . show
+tsToText = \case
+  ISO8601 -> "ISO8601"
+  POSIX -> "Timestamp"
 
 instance FromJSON Timestamp where
   parseJSON = Aeson.withText "timestamp" $ \case
-    "rfc822" -> pure RFC822
     "iso8601" -> pure ISO8601
     "unixTimestamp" -> pure POSIX
     e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
@@ -453,12 +453,12 @@ instance ToJSON (Metadata Identity) where
 serviceError :: HasMetadata a f => a -> Text
 serviceError m =
   case m ^. protocol of
-    JSON -> "Prelude.parseJSONError"
-    RestJSON -> "Prelude.parseJSONError"
-    RestXML -> "Prelude.parseXMLError"
-    Query -> "Prelude.parseXMLError"
-    EC2 -> "Prelude.parseXMLError"
-    APIGateway -> "Prelude.parseJSONError"
+    JSON -> "parseJSONError"
+    RestJSON -> "parseJSONError"
+    RestXML -> "parseXMLError"
+    Query -> "parseXMLError"
+    EC2 -> "parseXMLError"
+    APIGateway -> "parseJSONError"
 
 data Service f a b c = Service
   { _metadata' :: Metadata f,

@@ -21,13 +21,13 @@ import Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
+import Data.Hashable (Hashable)
 import Data.List (sort)
 import Data.Maybe (fromMaybe)
 import Data.String
 import qualified Data.Text.Encoding as Text
-import Data.Hashable (Hashable)
-import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as HashMap
 import GHC.Exts
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text

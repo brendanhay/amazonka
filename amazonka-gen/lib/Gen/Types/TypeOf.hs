@@ -40,7 +40,7 @@ instance TypeOf Solved where
   typeOf = _annType
 
 instance HasId a => TypeOf (Shape a) where
-  typeOf (x :< s) = sensitive s (shape s)
+  typeOf (x :< s) = shape s
     where
       n = identifier x
 
@@ -55,11 +55,11 @@ instance HasId a => TypeOf (Shape a) where
         Lit i l -> lit i l
 
       lit i = \case
-        Int -> natural i (TLit Int)
-        Long -> natural i (TLit Long)
+        Int -> sensitive s (natural i (TLit Int))
+        Long -> sensitive s (natural i (TLit Long))
         Base64 | isStreaming i -> TStream
         Bytes | isStreaming i -> TStream
-        l -> TLit l
+        l -> sensitive s (TLit l)
 
       struct st
         | isStreaming st = stream
@@ -122,7 +122,19 @@ num = [DEnum, DBounded, DNum, DIntegral, DReal]
 frac = [DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
 enum = [DEnum, DBounded]
-synonym = [DToText, DFromText, DToByteString, DToQuery, DToHeader]
+synonym =
+  [ DToText,
+    DFromText,
+    DToByteString,
+    DToQuery,
+    DToHeader,
+    DToJSONKey,
+    DFromJSONKey,
+    DToJSON,
+    DFromJSON,
+    DToXML,
+    DFromXML
+  ]
 
 derivable :: [Derive]
 derivable = [DEq, DOrd, DRead, DShow, DGeneric, DHashable, DNFData]

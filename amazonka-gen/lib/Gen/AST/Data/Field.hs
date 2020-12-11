@@ -138,8 +138,8 @@ fieldLens, fieldAccessor :: Field -> Text
 fieldLens f = lensId (_fieldPrefix f) (_fieldId f)
 fieldAccessor f = accessorId (_fieldId f)
 
-fieldDeprecated :: Field -> Text
-fieldDeprecated f =
+lensDeprecated :: Field -> Text
+lensDeprecated f =
   "{-# DEPRECATED "
     <> fieldLens f
     <> " \"Use generic-lens or generic-optics with '"

@@ -29,19 +29,40 @@ description:
     to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            lib/{{ libraryName }}
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/{{ libraryName }}
+
+common base
+  default-language: Haskell2010
+
+  ghc-options:
+    -Wall
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates
+
+  default-extensions:
+    NoImplicitPrelude
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DuplicateRecordFields
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    OverloadedStrings
+    PatternSynonyms
+    RecordWildCards
+    ScopedTypeVariables 
+    StandaloneDeriving
+    StrictData
+    TypeFamilies
+
+  build-depends:    base >=4.12 && <5
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
-
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+    import:         base
+    hs-source-dirs: src gen
 
     exposed-modules:
           Network.AWS.{{ serviceAbbrev }}
@@ -56,19 +77,17 @@ library
 
     build-depends:
           amazonka-core == {{ coreVersion }}.*
-        , base >= 4.12 && < 5
-        , case-insensitive
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}
 
 test-suite {{ libraryName }}-test
+    import:            base
     type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
     hs-source-dirs:    test
     main-is:           Main.hs
 
-    ghc-options:       -Wall -threaded
+    ghc-options:       -threaded
 
     -- This section is encoded by the template and any modules added by
     -- hand outside these namespaces will not correctly be added to the
@@ -82,7 +101,6 @@ test-suite {{ libraryName }}-test
           amazonka-core == {{ coreVersion }}.*
         , amazonka-test == {{ coreVersion }}.*
         , {{ libraryName }}
-        , base
         , bytestring
         , case-insensitive
         , tasty

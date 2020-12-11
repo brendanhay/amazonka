@@ -32,10 +32,10 @@ let
   botocoreDir = "${botocore}/botocore/data";
   botocoreRev = builtins.substring 0 7 botocore.rev;
 
-  annexDir = ./config/annexes;
-  configDir = ./config/models;
-  templateDir = ./config/templates;
-  staticDir = ./config/static;
+  annexDir = ./amazonka-gen/annexes;
+  configDir = ./amazonka-gen/config;
+  templateDir = ./amazonka-gen/templates;
+  staticDir = ./amazonka-gen/static;
 
   clientVersion = cabalProject.amazonka.identifier.version;
   coreVersion = cabalProject.amazonka-core.identifier.version;
@@ -76,8 +76,7 @@ in pkgs.stdenvNoCC.mkDerivation {
   pname = "amazonka";
   version = botocoreRev;
 
-  phases = [ "unpackPhase" "generatePhase" ]
-    ++ lib.optionals format [ "formatPhase" ];
+  phases = [ "generatePhase" ] ++ lib.optionals format [ "formatPhase" ];
 
   buildInputs = [
     localTools.cabal-fmt
@@ -85,19 +84,10 @@ in pkgs.stdenvNoCC.mkDerivation {
     cabalProject.amazonka-gen.components.exes.amazonka-gen
   ];
 
-  src = localLib.cleanGeneratedSource {
-    name = "amazonka-generate";
-    src = ./lib;
-  };
-
-  unpackPhase = ''
-    mkdir -p $out
-    cp -R $src/amazonka-* $out/
-    chmod -R u+rw $out
-  '';
-
   generatePhase = ''
-    amazonka-gen \
+    mkdir -p $out
+
+    args=(
       --out=$out \
       --library-version=${libraryVersion} \
       --client-version=${clientVersion} \
@@ -108,6 +98,12 @@ in pkgs.stdenvNoCC.mkDerivation {
       --static="${staticDir}" \
       --retry=${botocoreDir}/_retry.json \
       ${builtins.concatStringsSep " " modelArguments}
+    )
+
+    # Reproduce, without re-running nix.
+    echo "cabal new-run amazonka-gen -- ''${args[@]}"
+
+    amazonka-gen +RTS -A128m -qg -RTS "''${args[@]}"
   '';
 
   formatPhase = ''
@@ -122,7 +118,7 @@ in pkgs.stdenvNoCC.mkDerivation {
         | xargs -0 cabal-fmt --inplace --indent=2
 
       find $dir -type f -name '*.hs' -print0 \
-        | xargs -0 ormolu --mode=inplace
+        | xargs -0 ormolu --mode=inplace --ghc-opt='-XPatternSynonyms' 
     done
   '';
 }

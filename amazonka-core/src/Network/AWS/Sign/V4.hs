@@ -27,7 +27,6 @@ import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Query
-import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~), (<>~))
 import Network.AWS.Request
 import Network.AWS.Sign.V4.Base
@@ -49,8 +48,8 @@ presign ex rq a r ts = signRequest meta mempty auth
     presigner c shs =
       pair (CI.original hAMZAlgorithm) algorithm
         . pair (CI.original hAMZCredential) (toBS c)
-        . pair (CI.original hAMZDate) (Time ts :: AWSTime)
-        . pair (CI.original hAMZExpires) ex
+        . pair (CI.original hAMZDate) (formatBasicTime ts)
+        . pair (CI.original hAMZExpires) (toBS ex)
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
         . pair (CI.original hAMZToken) (toBS <$> _authToken a)
 

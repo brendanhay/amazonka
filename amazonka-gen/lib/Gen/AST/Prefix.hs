@@ -145,18 +145,20 @@ acronymPrefixes r (stripSuffix "Response" -> n)
           | Text.length x >= 2 = Text.head (Text.drop 1 x)
           | otherwise = Text.head x
 
-    xs = catMaybes [r1, r2, r3, r4, r5, r6]
-    ys = catMaybes [r1, r2, r3, r4, r6, r7]
+    xs = catMaybes [r2, r3, r4, r5, r6]
+    ys = catMaybes [r2, r3, r4, r6, r7]
 
     a = camelAcronym n
     a' = upperAcronym n
 
     limit = 3
 
-    -- Full name if leq limit
-    r1
-      | Text.length n <= limit = Just n
-      | otherwise = Nothing
+    -- Note: omitted as now with DuplicateRecordFields it creates too many
+    -- clashes with existing field names.
+    -- -- Full name if leq limit
+    -- r1
+    --   | Text.length n <= limit = Just n
+    --   | otherwise = Nothing
 
     -- VpcPeeringInfo -> VPI
     r2 = Manipulate.toAcronym a

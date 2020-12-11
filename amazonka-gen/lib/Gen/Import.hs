@@ -20,13 +20,13 @@ import Gen.Types
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o =
   List.sort $
-    "qualified Network.AWS.Request as Request" :
-    "qualified Network.AWS.Response as Response" :
+    "qualified Network.AWS.Request as Req" :
+    "qualified Network.AWS.Response as Res" :
     qualifiedLude :
     qualifiedLens :
     l ^. typesNS :
     l ^. operationModules
-      ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
+      ++ maybeToList (const "qualified Network.AWS.Pager as Page" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l =
@@ -59,7 +59,7 @@ waiterImports l =
   List.sort $
     qualifiedLens :
     qualifiedLude :
-    "qualified Network.AWS.Waiter as Waiter" :
+    "qualified Network.AWS.Waiter as Wait" :
     l ^. typesNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
   where
@@ -84,4 +84,4 @@ fixtureImports l =
 
 qualifiedLens, qualifiedLude :: NS
 qualifiedLens = "qualified Network.AWS.Lens as Lens"
-qualifiedLude = "qualified Network.AWS.Prelude as Prelude"
+qualifiedLude = "qualified Network.AWS.Prelude as Lude"

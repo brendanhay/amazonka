@@ -8,7 +8,7 @@
 -- {{ documentation | stripPrefix("-- | ") }}
 module {{ moduleName }}
     (
-    -- * Service Configuration
+    -- * Service configuration
       {{ serviceConfig }}
 
     -- * Errors
@@ -51,7 +51,7 @@ module {{ moduleName }}
     {% when "product" %}
 
     -- ** {{ shape.value.name }}
-    , {{ shape.value.name }}
+    , {{ shape.value.name }} (..)
     , {{ shape.value.constructor.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
@@ -62,6 +62,17 @@ module {{ moduleName }}
     , {{ shape.value.name }} (..)
     {% endcase %}
   {% endfor %}
+
+    -- * Serialization types
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.Time (..)
+    , Lude._Time
+    , Lude.ISO8601
+    , Lude.Timestamp
+    , Lude.UTCTime
     ) where
 
 {% for module in exposedModules %}
@@ -70,6 +81,7 @@ import {{ module.value }}
 {% for module in typeModules %}
 import {{ module.value }}
 {% endfor %}
+import qualified Network.AWS.Prelude as Lude
 
 {- $errors
 Error matchers are designed for use with the functions provided by

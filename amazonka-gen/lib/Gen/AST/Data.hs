@@ -156,7 +156,7 @@ patternData p s i vs = Sum s mk (HashMap.keys instances)
         }
 
     decl =
-      dataD name [conD (Exts.ConDecl () (ident constructor) [(tycon "Prelude.Text")])] $
+      dataD name [conD (Exts.ConDecl () (ident constructor) [(tycon "Lude.Text")])] $
         derivingOf s
 
     name = s ^. annId
@@ -197,10 +197,15 @@ prodData m s st = (mk, fields)
     mkLens f =
       Fun'
         { _funName = fieldLens f,
-          _funDoc = fieldHelp f,
+          _funDoc =
+            fieldHelp f
+              <> "\n--\n-- /Note:/ Consider using '"
+              <> Help (fieldAccessor f)
+              <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
+              <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
           _funSig = pp None (lensS m (s ^. annType) f),
-          _funDecl = pp None (lensD f),
-          _funPragmas = [Text.Lazy.fromStrict (fieldDeprecated f)]
+          _funDecl = pp None (lensD m (s ^. annType) f),
+          _funPragmas = [Text.Lazy.fromStrict (lensDeprecated f)]
         }
 
     mkCtor :: Fun

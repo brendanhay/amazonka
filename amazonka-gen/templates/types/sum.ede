@@ -1,0 +1,18 @@
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{% include "_include/license.ede" %}
+--
+module {{ moduleName }}
+  ( {{ shape.name }}
+    ( {{ shape.constructor }}
+  {% for ctor in shape.patterns %}
+    , {{ ctor.key }}
+  {% endfor %}
+    )
+  ) where
+
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+
+{% include "_include/sum.ede" %}

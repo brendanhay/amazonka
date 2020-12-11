@@ -33,7 +33,6 @@ import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Sensitive (_Sensitive)
-import Network.AWS.Data.Time
 import Network.AWS.Lens ((<>~), (^.))
 import Network.AWS.Sign.V4.Base hiding (algorithm)
 import Network.AWS.Types
@@ -89,7 +88,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
           ]
 
     time :: ByteString
-    time = toBS (Time ts :: AWSTime)
+    time = formatAWSTime ts
 
     scope :: CredentialScope
     scope = credentialScope (_rqService rq) end ts

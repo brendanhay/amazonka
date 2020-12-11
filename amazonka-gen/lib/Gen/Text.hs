@@ -51,11 +51,12 @@ renameOperation t
     f x = x == '_' || Char.isDigit x
 
 serviceFunction :: Text -> Text
-serviceFunction n
-  | Text.all f n = Text.toLower n
-  | otherwise = Manipulate.lowerHead (lowerFirstAcronym n)
-  where
-    f c = Char.isUpper c || Char.isDigit c
+serviceFunction n =
+  let f c = Char.isUpper c || Char.isDigit c
+   in (<> "Service") $
+        if Text.all f n
+          then Text.toLower n
+          else Manipulate.lowerHead (lowerFirstAcronym n)
 
 renameService :: Text -> Text
 renameService =
@@ -128,7 +129,7 @@ camelAcronym x = replaceAll x xs
     xs = map (bimap fromString fromString) acronyms
 
 lowerFirstAcronym :: Text -> Text
-lowerFirstAcronym x = replaceAll x xs
+lowerFirstAcronym x = Manipulate.lowerHead (replaceAll x xs)
   where
     xs = map (bimap (fromString . ('^' :)) (fromString . f)) acronyms
 
@@ -146,8 +147,8 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
       [ ("Acl", "ACL"),
         ("Adm([^i]|$)", "ADM$1"),
         ("Aes", "AES"),
-        ("Api", "API"),
         ("Ami", "AMI"),
+        ("Api", "API"),
         ("Apns", "APNS"),
         ("Arn", "ARN"),
         ("Asn", "ASN"),
@@ -156,8 +157,9 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Bgp", "BGP"),
         ("Cc([A-Z])", "CC$1"),
         ("Cors", "CORS"),
-        ("Csv", "CSV"),
         ("Cpu", "CPU"),
+        ("Csr$", "CSR"),
+        ("Csv", "CSV"),
         ("Db", "DB"),
         ("Dhcp", "DHCP"),
         ("Dns", "DNS"),
@@ -165,15 +167,23 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Ec2", "EC2"),
         ("Eip", "EIP"),
         ("en-US", "EN_US"),
+        ("Eq([^u]|$)", "EQ$1"),
         ("Gcm", "GCM"),
-        ("Html", "HTML"),
-        ("Https", "HTTPS"),
-        ("Http([^s]|$)", "HTTP$1"),
+        ("Gcm", "GCM"),
+        ("Gt$", "GT"),
+        ("Hapg", "HAPG"),
         ("Hsm", "HSM"),
+        ("Html", "HTML"),
+        ("Http([^s]|$)", "HTTP$1"),
+        ("Https", "HTTPS"),
         ("Hvm", "HVM"),
+        ("ID", "Id"),
+        ("Ia$", "IA"),
         ("Iam", "IAM"),
         ("Icmp", "ICMP"),
         ("Idn", "IDN"),
+        ("iOS$", "IOS"),
+        ("Ios$", "IOS"),
         ("Io([^a-z])", "IO$1"),
         ("Iops", "IOPS"),
         ("Ip", "IP"),
@@ -181,15 +191,18 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Json", "JSON"),
         ("Jvm", "JVM"),
         ("Kms", "KMS"),
+        ("Lt$", "LT"),
         ("Mac([^h]|$)", "MAC$1"),
         ("Md5", "MD5"),
         ("Mfa", "MFA"),
         ("Ok", "OK"),
         ("Os", "OS"),
         ("Php", "PHP"),
+        ("Qos", "QOS"),
         ("Raid", "RAID"),
         ("Ramdisk", "RAMDisk"),
         ("Rds", "RDS"),
+        ("Sdk", "SDK"),
         ("Sgd", "SGD"),
         ("Sni", "SNI"),
         ("Sns", "SNS"),
@@ -199,8 +212,8 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Sso", "SSO"),
         ("Svn", "SVN"),
         ("Tar([^g]|$)", "TAR$1"),
-        ("Tde", "TDE"),
         ("Tcp", "TCP"),
+        ("Tde", "TDE"),
         ("Tgz", "TGZ"),
         ("Tls", "TLS"),
         ("Uri", "URI"),
@@ -213,52 +226,46 @@ upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
         ("Vmdk", "VMDK"),
         ("Vpc", "VPC"),
         ("Vpn", "VPN"),
-        ("Xml", "XML"),
-        ("Xlarge", "XLarge"),
-        ("xlarge", "XLarge"),
-        ("Hapg", "HAPG"),
-        ("ID", "Id"),
-        ("Eq([^u]|$)", "EQ$1"),
-        ("Lt$", "LT"),
-        ("Gt$", "GT"),
         ("X8664", "X86_64"),
-        ("Ia$", "IA"),
-        ("Qos", "QOS"),
-        ("Sdk", "SDK"),
+        ("Xlarge", "XLarge"),
+        ("Xml", "XML"),
         ("Xss", "XSS"),
-        ("Gcm", "GCM"),
-        ("Apns", "APNS"),
-        ("Csr$", "CSR")
+        ("xlarge", "XLarge")
       ]
 
 acronyms :: [(String, String)]
 acronyms =
   [ ("ACL", "Acl"),
     ("AES", "Aes"),
-    ("API", "Api"),
     ("AMI", "Ami"),
+    ("API", "Api"),
     ("APNS", "Apns"),
     ("ARN", "Arn"),
     ("ASN", "Asn"),
     ("AWS", "Aws"),
     ("BGP", "Bgp"),
     ("CORS", "Cors"),
-    ("CSV", "Csv"),
     ("CPU", "Cpu"),
+    ("CSV", "Csv"),
     ("DB", "Db"),
     ("DHCP", "Dhcp"),
     ("DNS", "Dns"),
     ("EBS", "Ebs"),
     ("EC2", "Ec2"),
     ("EIP", "Eip"),
+    ("EN_US", "en-US"),
     ("GCM", "Gcm"),
+    ("GCM", "Gcm"),
+    ("HAPG", "Hapg"),
+    ("HSM", "Hsm"),
     ("HTML", "Html"),
     ("HTTPS", "Https"),
-    ("HSM", "Hsm"),
     ("HVM", "Hvm"),
     ("IAM", "Iam"),
     ("ICMP", "Icmp"),
+    ("ID", "Id"),
     ("IDN", "Idn"),
+    ("IOS$", "IOS"),
     ("IOPS", "Iops"),
     ("IP", "Ip"),
     ("JAR", "Jar"),
@@ -270,9 +277,11 @@ acronyms =
     ("OK", "Ok"),
     ("OS", "Os"),
     ("PHP", "Php"),
+    ("QOS", "Qos"),
     ("RAID", "Raid"),
     ("RAMDisk", "Ramdisk"),
     ("RDS", "Rds"),
+    ("SDK", "Sdk"),
     ("SGD", "Sgd"),
     ("SNI", "Sni"),
     ("SNS", "Sns"),
@@ -281,8 +290,8 @@ acronyms =
     ("SSL", "Ssl"),
     ("SSO", "Sso"),
     ("SVN", "Svn"),
-    ("TDE", "Tde"),
     ("TCP", "Tcp"),
+    ("TDE", "Tde"),
     ("TGZ", "Tgz"),
     ("TLS", "Tls"),
     ("URI", "Uri"),
@@ -294,13 +303,7 @@ acronyms =
     ("VMDK", "Vmdk"),
     ("VPC", "Vpc"),
     ("VPN", "Vpn"),
-    ("XML", "Xml"),
     ("XLarge", "Xlarge"),
-    ("HAPG", "Hapg"),
-    ("ID", "Id"),
-    ("QOS", "Qos"),
-    ("SDK", "Sdk"),
-    ("XSS", "Xss"),
-    ("GCM", "Gcm"),
-    ("APNS", "Apns")
+    ("XML", "Xml"),
+    ("XSS", "Xss")
   ]

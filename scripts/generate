@@ -68,11 +68,14 @@ fi
 
 result=$(nix-build generate.nix "${args[@]}")
 
-say "removing lib/*/gen directories..."
-rm -r ./lib/*/gen
+echo "$result"
+
+say "cleaning geenrated directories..."
+
+rm -r lib/*/gen lib/*/model || true
+chmod u+rw -R lib
 
 say "copying $result to lib..."
-cp -r "$result"/* ./lib/
 
-say "setting u+rw lib permissions..."
-chmod -R u+rw ./lib
+cp -r "$result"/* lib/
+chmod u+rw -R lib

@@ -11,12 +11,8 @@
 -- | {{ shape.constructor.documentation }}
 --
 {% endif %}
-{% for lens in shape.lenses %}
-  {% if lens.first %}
--- Use one of the following lenses to modify other fields as desired:
-  {% endif %}
---
--- * '{{ lens.value.name }}' - {{ lens.value.documentation }}
+{% for accessor in shape.accessors %}
+-- * '{{ accessor.key }}' - {{ accessor.value }}
 {% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}

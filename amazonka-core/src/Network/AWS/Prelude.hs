@@ -12,6 +12,7 @@ module Network.AWS.Prelude
 where
 
 import Control.DeepSeq as Export (NFData)
+import Data.Function as Export ((&))
 import Data.HashMap.Strict as Export (HashMap)
 import Data.Hashable as Export (Hashable)
 import Data.List.NonEmpty as Export (NonEmpty (..))
@@ -30,12 +31,9 @@ import Network.AWS.Data.Query as Export
 import Network.AWS.Data.Sensitive as Export
 import Network.AWS.Data.Text as Export
 import Network.AWS.Data.Time as Export
-  ( AWSTime,
-    BasicTime,
-    ISO8601,
-    POSIX,
-    RFC822,
+  ( ISO8601,
     Time (..),
+    Timestamp,
     UTCTime,
     _Time,
   )

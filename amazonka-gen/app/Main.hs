@@ -177,6 +177,15 @@ main = do
     tree <- hoistEither (Tree.populate optionOutput templates lib)
     dir <- Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x)) tree
 
+    let modelOutput = Tree.root dir </> "model"
+
+    Directory.createDirectoryIfMissing True modelOutput
+
+    copyFileIfExists (optionAnnexes </> annexFile model) (modelOutput </> "annex.json")
+    copyFileIfExists (serviceFile model) (modelOutput </> "service.json")
+    copyFileIfExists (waitersFile model) (modelOutput </> "waiters.json")
+    copyFileIfExists (pagersFile model) (modelOutput </> "pagers.json")
+
     say $
       "Successfully rendered "
         ++ Text.unpack (lib ^. libraryName)

@@ -41,7 +41,7 @@ import Network.HTTP.Types
 import Numeric
 import Numeric.Natural
 
-parseText :: FromText a => Parser a -> Text -> Either String a
+parseText :: Parser a -> Text -> Either String a
 parseText parser = A.parseOnly (parser <* A.endOfInput)
 
 class FromText a where

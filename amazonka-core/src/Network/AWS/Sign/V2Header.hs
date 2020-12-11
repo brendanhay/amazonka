@@ -19,7 +19,8 @@ module Network.AWS.Sign.V2Header
   )
 where
 
-import Data.Time
+import qualified Data.ByteString.Char8 as BS8
+import qualified Data.Time as Time
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto
@@ -88,4 +89,8 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
         . hdr hAuthorization ("AWS " <> toBS _authAccess <> ":" <> signature)
         $ _rqHeaders
 
-    time = toBS (Time t :: RFC822)
+    time = formatRFC822Time t
+
+formatRFC822Time :: UTCTime -> ByteString
+formatRFC822Time =
+  BS8.pack . Time.formatTime Time.defaultTimeLocale "%a, %d %b %Y %H:%M:%S GMT"

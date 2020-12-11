@@ -25,6 +25,7 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.Foldable as Fold
 import Data.Function (on)
 import Data.List (nubBy, sortBy)
+import qualified Data.Time as Time
 import GHC.TypeLits
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto
@@ -94,7 +95,7 @@ base h rq a r ts = (meta, auth)
     prepare =
       rqHeaders
         %~ ( hdr hHost (_endpointHost end)
-               . hdr hAMZDate (toBS (Time ts :: AWSTime))
+               . hdr hAMZDate (formatAWSTime ts)
                . hdr hAMZContentSHA256 (toBS h)
                . maybe id (hdr hAMZToken . toBS) (_authToken a)
            )
@@ -233,7 +234,7 @@ stringToSign t c r =
     BS8.intercalate
       "\n"
       [ algorithm,
-        toBS (Time t :: AWSTime),
+        formatAWSTime t,
         toBS c,
         digestToBase Base16 . hashSHA256 $ toBS r
       ]
@@ -244,7 +245,7 @@ credential k c = Tag (toBS k <> "/" <> toBS c)
 credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
 credentialScope s e t =
   Tag
-    [ toBS (Time t :: BasicTime),
+    [ formatBasicTime t,
       toBS (_endpointScope e),
       toBS (_svcPrefix s),
       "aws4_request"
@@ -298,3 +299,11 @@ normaliseHeaders =
     . sortBy (compare `on` fst)
     . filter ((/= "authorization") . fst)
     . filter ((/= "content-length") . fst)
+
+formatAWSTime :: UTCTime -> ByteString
+formatAWSTime =
+  BS8.pack . Time.formatTime Time.defaultTimeLocale "%Y%m%dT%H%M%SZ"
+
+formatBasicTime :: UTCTime -> ByteString
+formatBasicTime =
+  BS8.pack . Time.formatTime Time.defaultTimeLocale "%Y%m%d"

@@ -1,8 +1,5 @@
 {
     "libraryName": "amazonka-ec2",
-    "typeModules": [
-        "Network.AWS.EC2.Internal"
-    ],
     "typeOverrides": {
         "Status": {
             "renamedTo": "AddressStatus"
@@ -217,12 +214,6 @@
         },
         "VolumeAttachmentState": {
             "enumPrefix": "V"
-        },
-        "DeleteTag": {
-            "replacedBy": {
-                "name": "DeleteTag",
-                "underive": []
-            }
         },
         "FleetType": {
             "enumPrefix": "FT"

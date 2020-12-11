@@ -54,10 +54,10 @@ convertHaddock =
     go x =
       case name x of
         "html" -> nodes x
-        "p" -> nodes x <> "\n\n"
-        "ul" -> nodes x <> "\n\n"
-        "ol" -> nodes x <> "\n\n"
-        "dl" -> nodes x <> "\n\n"
+        "p" -> nodes x <> "\n"
+        "ul" -> nodes x <> "\n"
+        "ol" -> nodes x <> "\n"
+        "dl" -> nodes x <> "\n"
         "li" -> list (nodes x)
         "dt" -> list (nodes x)
         "dd" -> list (nodes x)

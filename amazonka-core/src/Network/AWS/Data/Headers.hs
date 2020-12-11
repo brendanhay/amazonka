@@ -21,12 +21,12 @@ where
 
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
 import Network.HTTP.Types
-import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as HashMap
 
 parseHeadersMap ::
   FromText a =>

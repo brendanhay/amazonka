@@ -1,15 +1,16 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 {% include "_include/license.ede" %}
 --
-module {{ moduleName }} where
+module {{ moduleName }}
+  ( {{ shape.name }} (..)
+  -- * Smart constructor
+  , {{ shape.constructor.name }}
+  -- * Lenses
+  {% for lens in shape.lenses %}
+  , {{ lens.value.name }}
+  {% endfor %}
+  ) where
 
 {% for import in moduleImports %}
 import {{ import.value }}

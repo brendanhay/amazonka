@@ -15,10 +15,9 @@
 -- and no other AWS actions are required.
 module Network.AWS.Presign where
 
-import Control.Monad
-import Control.Monad.IO.Class
+import Control.Monad.IO.Class (MonadIO (liftIO))
 import Network.AWS.Data.Time
-import Network.AWS.Lens ((%~), (&))
+import Network.AWS.Lens ((%~))
 import Network.AWS.Prelude
 import Network.AWS.Request (requestURL)
 import Network.AWS.Types
@@ -38,7 +37,7 @@ presignURL ::
   -- | Request to presign.
   a ->
   m ByteString
-presignURL a r e ts = liftM requestURL . presign a r e ts
+presignURL a r e ts = fmap requestURL . presign a r e ts
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

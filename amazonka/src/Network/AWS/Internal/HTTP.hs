@@ -33,7 +33,7 @@ import Data.Proxy
 import Data.Time
 import Network.AWS.Env
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens (to, view, (%~), (&), (^.), (^?), _Just)
+import Network.AWS.Lens (to, view, (%~), (^.), (^?), _Just)
 import Network.AWS.Prelude
 import Network.AWS.Waiter
 import Network.HTTP.Conduit hiding (Proxy, Request, Response)
